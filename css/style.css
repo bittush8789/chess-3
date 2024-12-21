@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@400;700&display=swap');
+
+:root {
+    --size: 1rem;
+    --tile-percent: 5.5vw;
+    --black: #DDD;
+    --white: white;
+    --first-color: #1e3d59;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 1vw;
+}
+body {
+    font-family: 'Old Standard TT', serif;
+    background-color: #f5f0e1;
+    color: #1e3d59;
+    position: relative;
+    user-select: none;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 3fr 1fr;
+    height: 100vh;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    min-width: 200px;
+    padding: 1rem;
+
+}
+
+.bench {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+}
+
+
+
+.piece {
+    cursor: pointer;
+
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#chessboard {
+    border-radius: 1rem;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: repeat(8, var(--tile-percent));
+    grid-template-rows: repeat(8, var(--tile-percent));
+    justify-content: center;
+    box-shadow: 0px 0px 4px #AAA;
+}
+#timer {
+    
+}
+
+#timerhud {
+    color: var(--first-color);
+    line-height: 2rem;
+    padding: .3rem .8rem;
+    padding-top: .5rem;
+}
+
+.subtitle {
+    font-size: 1rem;
+}
+
+.logo {
+    font-size: 1.4rem;
+    border-bottom: 1px solid var(--first-color);
+    margin-bottom: 1rem;
+}
+
+#message {
+}
+
+#hud {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: 800;
+    font-size: 1.5rem;
+}
+
+.hud {
+    display: inline-block;
+}
+
+.tile {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-size: 4.5rem;
+   cursor: pointer;
+}
+
+.tile:hover {
+    /* background-color: burlywood; */
+    border: 5px solid #ff6e40;
+    font-size: 5.2rem;
+}
+
+.black {
+    background-color: var(--black);
+}
+
+.white {
+    background-color: var(--white);
+}
+
+.border {
+    background-color: rgba(111, 111, 111, .5);
+    cursor: pointer;
+}
+
+
+.move {
+    background-color: rgba(0, 111, 0, .3) !important;
+}
+
+.move-black {
+    background-color: rgba(0, 111, 0, .4) !important;
+}
+
+.origin {
+    background-color: #ffc13b;
+}
+
+.check {
+    text-transform: uppercase;
+    border-radius: 3px;
+    margin: 0;
+    background-color: rgba(222,49,99, 1);
+}
+
+#check {
+    display: none;
+    font-size: 1rem;
+    line-height: 2rem;
+    padding: .3rem .8rem;
+    padding-top: .5rem;
+    background-color: rgb(222,49,99, .1);
+    color: rgb(222,49,99) ;
+    margin: .8rem 0;
+    text-transform: uppercase;
+    border-radius: .4rem;
+}
+
+#promotion {
+    font-size: 1rem;
+    line-height: 2rem;
+    padding: .3rem .8rem;
+    padding-top: .5rem;
+    background-color: rgba(255, 110, 64, .1);
+    color: rgb(255, 110, 64);
+    text-transform: uppercase;
+    border-radius: .4rem;
+    text-align: center;
+}
+
+#promo-modal {
+    width: fit-content;
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    justify-content: center;
+    align-items: center;
+    border-radius: .5rem;
+    background-color: white;
+    padding: .5rem 1rem;
+    box-shadow: 0px 0px 5px #AAA;
+    position: absolute;
+    top: calc(50% - 90px);
+    transition: .3s;
+}
+
+.promo-choice {
+    font-size: 4rem;
+    text-align: center;
+    padding: 1rem;
+    border-radius: 3px;
+}
+
+.promo-choice:hover {
+    background-color: rgba(255, 110, 64, .1);
+    cursor: pointer;
+}
+
+@media (max-width: 1200px) {
+    #chessboard {
+        grid-template-columns: repeat(8, 7vw);
+        grid-template-rows: repeat(8, 7vw);
+    }
+}
+
+@media (max-width: 1000px) {
+    #chessboard {
+        grid-template-columns: repeat(8, 9vw);
+        grid-template-rows: repeat(8, 9vw);
+    }
+
+}
+
+@media (max-width: 800px) {
+    #chessboard {
+        grid-template-columns: repeat(8, 10vw);
+        grid-template-rows: repeat(8, 10vw);
+    }
+}
+
